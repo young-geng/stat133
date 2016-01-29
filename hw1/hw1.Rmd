@@ -5,6 +5,42 @@ date: "January 22, 2016"
 output: pdf_document
 ---
 
+#### 1.1
+(a) 3. It’sthevalueofavariableforaparticularcase.
+(b) 2. It’s a quantitative variable.
+(c) 1. It’s a categorical variable.
+(d) 1. It’s a categorical variable.
+(e) 2. It’s a quantitative variable.
+
+
+#### 1.2
+Name format, year format and number of states ("it depends")
+
+
+#### 1.3
+president             in office          number of states
+
+Abraham Lincoln       1861-1865          12
+
+George Washington     1791-1799          16
+
+Martin Van Buren      1837-1841          26
+
+
+#### 1.4
+##### 1)
+Table A: Year, Algeria, Brazil, Columbia
+
+Table B: Country, Y2000, Y2001
+
+Table C: Country, Year, Value
+
+
+##### 2)
+Table A: a year, table B: a country, table C: a country in a year
+
+
+
 #### 2.2
 
 Only 2 (file name) as it is a string

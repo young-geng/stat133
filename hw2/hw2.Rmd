@@ -1,0 +1,50 @@
+---
+title: "Stat 133 Assignment 2"
+author: "Xinyang Geng"
+date: "January 28, 2016"
+output: pdf_document
+---
+
+
+# 2.7
+```{r, echo=FALSE, message=FALSE}
+data(flights, package="nycflights13")
+```
+1. There are `r dim(flights)[2]` variables.
+
+2. There are `r dim(flights)[1]` cases.
+
+3. Each case is a flight
+
+4. These variables are quantitive: `r names(flights)[unlist(lapply(flights[names(flights)], is.numeric))]`, 
+and these are catagorical: `r names(flights)[!unlist(lapply(flights[names(flights)], is.numeric))]`
+
+5. air_time is in minutes and distance is in miles.
+
+
+# 2.8
+
+* a. Improper syntax for function argument
+* b. No assignment operator
+* c. Invalid object name
+* d. Unmatched quotes in character string
+* e. No mistake
+
+
+# 2.10
+```{r, echo=FALSE, message=FALSE}
+data(NCHS, package="DataComputing")
+data(CountryData, package="DataComputing")
+data(WorldCities, package="DataComputing")
+data(BabyNames, package="DataComputing")
+data(RegisteredVoters, package="DataComputing")
+```
+
+* There are `r dim(CountryData)[2]` variables.
+* tfat measures mass of trunk fat
+* WorldCities has `r dim(WorldCities)[1]` cases.
+* The third variable in BabyNames is `r names(BabyNames)[3]`.
+* The codes are `r unique(as.numeric(RegisteredVoters$party))[order(unique(as.numeric(RegisteredVoters$party)))]`.
+They stand for `r levels(RegisteredVoters$party)`. 
+
+
