@@ -1,0 +1,60 @@
+---
+title: "Mini Project"
+author: "Xinyang Geng"
+date: ''
+output:
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  pdf_document: default
+---
+<!-- Don't edit in between this line and the one below -->
+```{r include=FALSE}
+# Don't delete this chunk if you are using the DataComputing package
+library(DataComputing)
+```
+*Source file* 
+```{r, results='asis', echo=FALSE}
+includeSourceDocuments()
+```
+<!-- Don't edit the material above this line -->
+
+The library data is downloaded from [here](ttp://tiny.cc/dcf/Library-small.rda).
+
+# Basics
+
+```{r}
+load("Library-small.rda")
+```
+Let's inspect the length and the variables in the library data
+```{r}
+names(Inv)
+nrow(Inv)
+
+names(Bks)
+nrow(Bks)
+```
+
+The `Inv` table contains the records of items in the library and the `Bks` table contains a list of books.
+
+
+```{r}
+Inv %>%
+  group_by(Current.Status) %>%
+  tally()
+```
+The `Current.Status` column records the current status of the book,
+and the `n` column counts the number of books in this status.
+
+
+```{r}
+Inv %>%
+  group_by(Issued.Count) %>%
+  tally()
+```
+
+The `Issue.Count` column counts the number of times the book has been checked out,
+and the `n` column counts the number of books in this case.
+
+
+

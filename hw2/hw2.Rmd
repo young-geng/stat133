@@ -48,3 +48,45 @@ data(RegisteredVoters, package="DataComputing")
 They stand for `r levels(RegisteredVoters$party)`. 
 
 
+# 3.4
+* 1) BabyNames : data table name
+* 2) filter : function name
+* 3) name : variable name
+* 4) == : function name
+* 5) group_by : function name
+* 6) year : variable name
+* 7) sex : variable name
+* 8) summarise : function name
+* 9) yearlyTotal : name of a named argument
+* 10) sum : function name
+* 11) count : variable
+* 12) ggplot : function name
+* 13) aes : function name
+* 14) x : name of a named argument
+* 15) y : name of a named argument
+
+
+# 3.5
+
+1. The brainwt variable means: brain weight in kilograms.
+2. There are totally 83 cases.
+3. The real-world meaning of a case is Mammal's sleep pattern.
+4. The levels are carni, omni and herbi.
+
+
+# 3.6
+Statement c finds average of births across all cases in each year/sex group,
+instead of finding the total number of births in other statements.
+
+# 4.1
+1. \*one*: italics.
+2. \*\*two**: bold font.
+3. \* three: item in a bullet point list.
+4. \# Four: first-level header.
+5. \`five`: code font.
+6. \#\# Six: second-level header.
+7. \[seven](http://tiny.cc/dcf/index.html): A link with text "seven".
+
+
+
+
