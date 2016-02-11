@@ -1,0 +1,169 @@
+---
+title: "Homework 3"
+author: "Xinyang Geng"
+date: "2/8/2016"
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 5
+---
+<!-- Don't edit in between this line and the one below -->
+```{r include=FALSE}
+# Don't delete this chunk if you are using the DataComputing package
+library(DataComputing)
+```
+*Source file* 
+```{r, results='asis', echo=FALSE}
+includeSourceDocuments()
+```
+<!-- Don't edit the material above this line -->
+
+### 5.4
+```{r}
+ggplot(data=CPS85,aes(x=exper, y=wage, colour=married)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_wrap(~sector,ncol=4) 
+```
+
+
+#### Problem 6.2
+
+1. Y axis -> log enzyme concentration
+  X axis at the bottom -> gene
+  flled circle or unfilled circle -> Flux
+  X axis at the top -> target
+  color -> molecule
+2. Y axis -> log enzyme concentration
+  X axis at the bottom -> gene
+  Filled circle or unfilled circle: Flux
+  X axis at the top -> target 
+  color -> molecule
+3. log enzyme concentration and gene
+4. gene and target
+
+
+#### 6.3
+
+1. For the candle stick: x position -> position in the table, y position of the low end of the bar ->low, y position of the high end of the bar ->high, y position of the dot -> center, name of the protein and the color -> polarity.
+The asterisk glyph: x position -> position in the table, number of asterisk -> signif
+2. Y axis: cell density, X axis: protein.
+3. No
+4. Guides are tick marks for the vertical axis and the label for the horizontal axis.
+
+
+#### 6.6
+D
+
+#### 6.8
+```{r}
+small <-
+  NCHS %>%
+    sample_n(size=5000)
+ggplot(data=small, aes(x=bmi,y=weight)) +
+  geom_point() +
+  aes(colour=smoker) 
+```
+
+* Y axis position -> weight
+* X axis position -> bmi
+* color -> smoker
+
+
+#### 7.2
+```{r}
+diamonds %>%
+  group_by(color) %>%
+  summarise(avesize=mean(carat, na.rm=TRUE)) %>%
+  arrange(desc(avesize)) %>%
+  head(1)
+```
+The color J has the largest size on average.
+
+
+```{r}
+diamonds %>%
+  group_by(clarity) %>%
+  mutate(ratio=table / mean(carat, na.rm=TRUE)) %>%
+  arrange(desc(ratio)) %>%
+  head(1)
+```
+Diamonds with clarity of 1.45 has the largest table per clarat.
+
+
+#### 7.4
+
+1. The variable First should not be in parenthesis. 
+2. The name Tmp is not defined.
+3. Should summarise Tmp rather than BabyName.
+
+
+#### 7.5
+* (a) `arrange(count,sex)`
+* (b) `filter(sex=="F")`
+* (c) `filter(sex=="M", count>10)`
+* (d) `summarise(total = sum(count))`
+* (e) `select(name, count)`
+
+
+#### 7.6
+1. There are `r Minneapolis2013 %>% summarise(count=n())` cases
+2. The top 5 are:
+```{r echo=FALSE, message=FALSE}
+Minneapolis2013 %>%
+  filter(Second != "undervote") %>%
+  group_by(Second) %>%
+  summarise(count=n()) %>%
+  arrange(desc(count)) %>%
+  head(5)
+```
+
+3.
+There are `r Minneapolis2013 %>% filter(First=="undervote") %>% summarise(count=n())`
+ballots marked undervote in the first choice selections, and
+`r Minneapolis2013 %>% filter(Second=="undervote") %>% summarise(count=n())` in the second, `r Minneapolis2013 %>% filter(Third=="undervote") %>% summarise(count=n())` in the third.
+
+4. The most popular combinations are:
+```{r message=FALSE, warning=FALSE}
+within(Minneapolis2013 %>% select(First, Second), Combination <- paste(First, Second, sep='&')) %>%
+  group_by(Combination)%>%
+  summarise(count=n())%>%
+  arrange(desc(count))%>%
+  head(3)
+
+```
+5.
+```{r}
+Minneapolis2013 %>%
+  group_by(Precinct) %>%
+  summarise(count=n()) %>%
+  arrange(desc(count)) %>%
+  head(1)
+```
+P-06 is the precinct with the highest number of ballots. 
+
+#### 8.1
+
+1. Construct the graphics frame: c
+2. Add a layer of glyphs: a, b, g
+3. Set axis lable: e
+4. Divide the frame into facets: f,i
+5. Change the scale for the frame: d, h
+
+#### 8.2
+```{r warning=FALSE}
+data("CPS85", package="mosaicData")
+ggplot(data=CPS85, aes(x=age, y=wage)) +
+  geom_point(aes(shape=married)) +
+  facet_wrap(~sector, ncol=3) +
+  ylim(0, 30) 
+ggplot(data=CPS85, aes(x=age, y=wage)) +
+  geom_point() +
+  facet_grid(sex~married) +
+  ylim(0, 40) 
+```
+
+
+
+

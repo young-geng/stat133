@@ -1,0 +1,65 @@
+---
+title: "Lab 3"
+author: "Xinyang Geng"
+date: "2/3/2016"
+output: 
+  html_document:
+    fig_height: 3
+    fig_width: 5
+---
+<!-- Don't edit in between this line and the one below -->
+```{r include=FALSE}
+# Don't delete this chunk if you are using the DataComputing package
+library(DataComputing)
+```
+*Source file* 
+```{r, results='asis', echo=FALSE}
+includeSourceDocuments()
+```
+<!-- Don't edit the material above this line -->
+
+### Part 1
+1. Dot
+2. Year and portion of family income
+3. Year: x-axis, portion of income: y-axis
+4. The level of family income.
+5. Year and portion.
+6. Year and portion of family income
+7. The guides are the numbers near the glyph.
+8. Please don't waste my time.
+
+
+### Part 2
+
+```{r}
+library(nycflights13)
+flights1 <-flights %>%
+  select( carrier, distance, dep_delay, origin) %>%
+  head(10)
+flights1
+```
+
+```{r}
+flights1 %>%
+  arrange(distance)
+```
+
+```{r}
+flights1 %>%
+  filter(carrier == "UA")
+```
+
+```{r}
+flights1 %>%
+  filter(carrier == "UA", dep_delay > 0)
+```
+
+```{r}
+flights1 %>%
+  summarise(total=mean(dep_delay))
+```
+
+```{r}
+flights1 %>%
+  select(carrier, distance)
+```
